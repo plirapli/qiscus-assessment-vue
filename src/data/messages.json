@@ -1,0 +1,215 @@
+{
+  "data": [
+    {
+      "room_id": "313621130",
+      "chats": [
+        {
+          "id": "msg_001",
+          "sender": "alice_smith",
+          "text": "Hi there! I wanted to follow up on the Project Aurora specifications. Have you had a chance to review the technical requirements document I sent last week?",
+          "timestamp": "2023-06-10T09:15:22Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_002",
+          "sender": "currentUser",
+          "text": "Yes, I've gone through the document. Overall it looks good, but I have some questions about the API integration points. Specifically around how we'll handle authentication with the legacy systems.",
+          "timestamp": "2023-06-10T11:30:45Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_003",
+          "sender": "alice_smith",
+          "text": "Good questions! We're actually working on a solution for that. The auth team suggested using JWT tokens with a fallback to API keys during the transition period. I can share the architecture diagram if you'd like.",
+          "timestamp": "2023-06-10T13:22:18Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_004",
+          "sender": "currentUser",
+          "text": "That would be helpful. Also, I noticed the document mentions using GraphQL but doesn't specify whether we're implementing our own schema or using an existing one. Do you know which direction we're going?",
+          "timestamp": "2023-06-10T14:05:33Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_005",
+          "sender": "alice_smith",
+          "text": "We'll be extending the existing corporate schema. I'm attaching the reference docs and some sample queries that should help.",
+          "timestamp": "2023-06-10T14:30:12Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_006",
+          "sender": "currentUser",
+          "text": "Thanks, these will be really useful. I'll review them and get back to you with any additional questions by Wednesday at the latest.",
+          "timestamp": "2023-06-10T16:45:00Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_007",
+          "sender": "alice_smith",
+          "text": "Sounds good. Just a heads up - we have a stakeholder meeting scheduled for Friday at 2pm where we'll need to present our progress. Can you prepare a 10-minute overview of your component's status?",
+          "timestamp": "2023-06-11T10:15:00Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_008",
+          "sender": "currentUser",
+          "text": "I can do that. I'll prepare slides covering the current implementation status, remaining risks, and our timeline. Should I include screenshots of the prototype?",
+          "timestamp": "2023-06-11T11:30:22Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_009",
+          "sender": "alice_smith",
+          "text": "Yes, visuals would be great! The stakeholders always respond well to seeing actual screens. Maybe 2-3 key screens that demonstrate the main functionality?",
+          "timestamp": "2023-06-11T12:45:10Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_010",
+          "sender": "currentUser",
+          "text": "Will do. I'll send you a draft of the presentation by Thursday morning for review.",
+          "timestamp": "2023-06-11T13:20:05Z",
+          "isCurrentUser": true
+        }
+      ]
+    },
+    {
+      "room_id": "313621108",
+      "chats": [
+        {
+          "id": "msg_101",
+          "sender": "david_ux",
+          "text": "Hey! I've just uploaded the new mockups for the dashboard redesign to Figma. Would love your feedback when you get a chance.",
+          "timestamp": "2023-06-12T09:05:00Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_102",
+          "sender": "currentUser",
+          "text": "Just looked at them - really like the new data visualization approach! One question: are we keeping the dark mode option? I don't see it in the new designs.",
+          "timestamp": "2023-06-12T10:30:15Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_103",
+          "sender": "david_ux",
+          "text": "Good catch! Dark mode is still planned - I just haven't created those variants yet. I'll add them to the 'Version 2' page by end of day.",
+          "timestamp": "2023-06-12T11:15:33Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_104",
+          "sender": "currentUser",
+          "text": "Also, I noticed the new layout moves the navigation to the left side. Was this tested with users? Our analytics show most people are used to the top navigation.",
+          "timestamp": "2023-06-12T11:45:50Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_105",
+          "sender": "david_ux",
+          "text": "We ran an A/B test last month with 500 users - the left nav actually performed 12% better for task completion. I can share the test results if you're interested.",
+          "timestamp": "2023-06-12T12:30:18Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_106",
+          "sender": "currentUser",
+          "text": "That's surprising but good to know! No need for the full results - I trust your research. The designs look great overall.",
+          "timestamp": "2023-06-12T13:15:42Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_107",
+          "sender": "david_ux",
+          "text": "Thanks! One last thing - would you be available for a quick sync tomorrow at 11am to go over the developer handoff process? Shouldn't take more than 30 minutes.",
+          "timestamp": "2023-06-12T15:00:05Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_108",
+          "sender": "currentUser",
+          "text": "11am works for me. I'll bring my questions about animation implementation - we'll need to discuss performance considerations.",
+          "timestamp": "2023-06-12T15:45:30Z",
+          "isCurrentUser": true
+        }
+      ]
+    },
+    {
+      "room_id": "313621084",
+      "chats": [
+        {
+          "id": "msg_201",
+          "sender": "jane_doe",
+          "text": "Hey! A bunch of us are planning to try that new Korean BBQ place downtown on Friday after work. Would you like to join?",
+          "timestamp": "2023-06-08T17:30:00Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_202",
+          "sender": "currentUser",
+          "text": "That sounds great! What time were you thinking?",
+          "timestamp": "2023-06-08T18:15:22Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_203",
+          "sender": "jane_doe",
+          "text": "Probably around 6:30pm. We have reservations for 8 people under 'Tech Team'.",
+          "timestamp": "2023-06-08T18:30:45Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_204",
+          "sender": "currentUser",
+          "text": "Perfect, count me in! Should I bring anything?",
+          "timestamp": "2023-06-08T19:05:10Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_205",
+          "sender": "jane_doe",
+          "text": "Just your appetite! Though if you want to bring a board game or something for after dinner, that could be fun. A few of us might go to that new barcade afterward too.",
+          "timestamp": "2023-06-08T19:30:33Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_206",
+          "sender": "currentUser",
+          "text": "I've got Codenames - that's always a hit with the group. And the barcade sounds awesome! Haven't been there yet.",
+          "timestamp": "2023-06-08T20:15:00Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_207",
+          "sender": "jane_doe",
+          "text": "Great choice! Looking forward to it. I'll send a reminder on Friday.",
+          "timestamp": "2023-06-08T20:45:18Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_208",
+          "sender": "currentUser",
+          "text": "Sounds good! Thanks for organizing this.",
+          "timestamp": "2023-06-08T21:00:05Z",
+          "isCurrentUser": true
+        },
+        {
+          "id": "msg_209",
+          "sender": "jane_doe",
+          "text": "Quick update: We had to move the reservation to 7pm because of some scheduling conflicts. Hope that still works for you!",
+          "timestamp": "2023-06-09T10:15:22Z",
+          "isCurrentUser": false
+        },
+        {
+          "id": "msg_210",
+          "sender": "currentUser",
+          "text": "7pm is actually better for me - gives me time to wrap up that deployment. See you then!",
+          "timestamp": "2023-06-09T10:30:45Z",
+          "isCurrentUser": true
+        }
+      ]
+    }
+  ]
+}
