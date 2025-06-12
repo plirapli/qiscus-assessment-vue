@@ -3,62 +3,23 @@ import ChatBubble from "@/components/ChatBubble.vue";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { useDateFormat } from "@vueuse/core";
 import { SendHorizonal } from "lucide-vue-next";
 import { useRoute } from "vue-router";
-import messages from "@/data/messages.json";
-import { computed, nextTick, ref, watch, type Ref } from "vue";
-import roomList from "@/data/list_rooms.json";
-
-interface Chat {
-  id: string;
-  text: string;
-  sender: string;
-  timestamp: string;
-  isCurrentUser: boolean;
-}
+import { nextTick, onMounted, ref, watch } from "vue";
+import { useChatStore } from "@/stores/chat";
+import { storeToRefs } from "pinia";
 
 const route = useRoute();
-const roomId = ref(route.params.id);
-const chats: Ref<Chat[]> = ref([]);
-const currentChat = ref("");
+const chatStore = useChatStore();
+const { chats, newMessage, roomName, roomAvatar, roomLastSeenDate } =
+  storeToRefs(chatStore);
 const messagesContainer = ref<HTMLDivElement | null>(null);
 
-// Get room info
-const currentRoom = computed(() =>
-  roomList.data.customer_rooms.find((room) => room.room_id === roomId.value)
-);
-const roomName = computed(() => currentRoom.value?.name || "Unknown Room");
-const roomAvatar = computed(() => currentRoom.value?.user_avatar_url);
-const roomLastSeenDate = computed(() => {
-  const date = currentRoom.value?.last_customer_timestamp;
-  return date
-    ? useDateFormat(new Date(date), "DD-MM-YY, HH:mm")
-    : "Unknown last seen";
-});
+const { loadMessages, sendMessage } = chatStore;
 
-// Load messages function
-const loadMessages = (id: string | string[]) => {
-  try {
-    const roomData = messages.data.find((room) => room.room_id === id);
-    chats.value = roomData ? roomData.chats : [];
-  } catch (error) {
-    console.error("Failed to load messages:", error);
-  } finally {
-    scrollToBottom();
-  }
-};
-
-const sendMessage = () => {
-  const newChat = {
-    id: roomId.value.toString(),
-    text: currentChat.value,
-    sender: "currentUser",
-    timestamp: new Date().toISOString(),
-    isCurrentUser: true,
-  };
-  chats.value = [...chats.value, newChat];
-  currentChat.value = "";
+const handleSendMessage = () => {
+  sendMessage();
+  scrollToBottom();
 };
 
 // Scroll to bottom helper
@@ -74,10 +35,29 @@ const scrollToBottom = () => {
 watch(
   () => route.params.id,
   (newId) => {
-    (roomId.value = newId), loadMessages(newId);
+    route.params.id = newId;
+    if (newId) {
+      loadMessages(newId as string);
+      scrollToBottom();
+    }
   },
   { immediate: true } // Run immediately on component creation
 );
+
+// Scroll when messages change
+watch(
+  () => chats,
+  () => scrollToBottom(),
+  { deep: true }
+);
+
+// Initialize the store
+onMounted(async () => {
+  if (route.params.id) {
+    chatStore.loadMessages(route.params.id as string);
+    scrollToBottom();
+  }
+});
 </script>
 
 <template>
@@ -101,14 +81,14 @@ watch(
       <ChatBubble v-if="chats.length" v-for="chat in chats" :chat="chat" />
       <div v-else class="text-zinc-400 text-center">No Conversations yet</div>
     </div>
-    <form @submit.prevent="sendMessage" class="px-4 pb-4 flex gap-2">
+    <form @submit.prevent="handleSendMessage" class="px-4 pb-4 flex gap-2">
       <Input
         type="text"
         placeholder="Enter your message"
-        v-model="currentChat"
+        v-model="newMessage"
         :disabled="roomName == 'Unknown Room'"
       />
-      <Button size="icon" class="cursor-pointer" :disabled="!currentChat">
+      <Button size="icon" class="cursor-pointer" :disabled="!newMessage">
         <SendHorizonal class="w-4" />
       </Button>
     </form>
